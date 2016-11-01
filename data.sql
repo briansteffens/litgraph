@@ -33,3 +33,6 @@ set @infinite_jest_id = last_insert_id();
 
 insert into connections (book_id, references_id)
 values (@infinite_jest_id, @ulysses_id);
+
+insert into connections (book_id, references_id)
+values (@infinite_jest_id, @hamlet_id);
