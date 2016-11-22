@@ -36,3 +36,12 @@ values (@infinite_jest_id, @ulysses_id);
 
 insert into connections (book_id, references_id)
 values (@infinite_jest_id, @hamlet_id);
+
+insert into authors (name) values ('Marcel Proust');
+set @proust_id = last_insert_id();
+
+insert into books (author_id, title) values (@proust_id, 'Swann\'s Way');
+set @swanns_way = last_insert_id();
+
+insert into connections (book_id, references_id)
+values (@swanns_way, @the_odyssey_id);
