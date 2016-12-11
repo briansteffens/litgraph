@@ -37,6 +37,12 @@ values (@infinite_jest_id, @ulysses_id);
 insert into connections (book_id, references_id)
 values (@infinite_jest_id, @hamlet_id);
 
+insert into authors (name) values ('Virgil');
+set @virgil_id = last_insert_id();
+
+insert into books (author_id, title) values (@virgil_id, 'The Aeneid');
+set @aeneid_id = last_insert_id();
+
 insert into authors (name) values ('Marcel Proust');
 set @proust_id = last_insert_id();
 
@@ -45,3 +51,6 @@ set @swanns_way = last_insert_id();
 
 insert into connections (book_id, references_id)
 values (@swanns_way, @the_odyssey_id);
+
+insert into connections (book_id, references_id)
+values (@swanns_way, @the_aeneid);
