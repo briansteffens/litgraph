@@ -4,6 +4,12 @@ set @homer_id = last_insert_id();
 insert into books (author_id, title) values (@homer_id, 'The Odyssey');
 set @the_odyssey_id = last_insert_id();
 
+insert into authors (name) values ('Various');
+set @various_id = last_insert_id();
+
+insert into books (author_id, title) values (@various_id, 'The Bible');
+set @bible_id = last_insert_id();
+
 insert into authors (name) values ('William Shakespeare');
 set @shakespeare_id = last_insert_id();
 
@@ -54,3 +60,12 @@ values (@swanns_way, @the_odyssey_id);
 
 insert into connections (book_id, references_id)
 values (@swanns_way, @the_aeneid);
+
+insert into authors (name) values ('Herman Melville');
+set @melville_id = last_insert_id();
+
+insert into books (author_id, title) values (@melville_id, 'Moby Dick');
+set @moby_dick_id = last_insert_id();
+
+insert into connections (book_id, references_id)
+values (@moby_dick_id, @the_bible);
