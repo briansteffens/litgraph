@@ -1,6 +1,9 @@
 insert into authors (name) values ('Homer');
 set @homer_id = last_insert_id();
 
+insert into books (author_id, title) values (@homer_id, 'The Iliad');
+set @the_iliad_id = last_insert_id();
+
 insert into books (author_id, title) values (@homer_id, 'The Odyssey');
 set @the_odyssey_id = last_insert_id();
 
@@ -69,3 +72,6 @@ set @moby_dick_id = last_insert_id();
 
 insert into connections (book_id, references_id)
 values (@moby_dick_id, @the_bible);
+
+insert into connections (book_id, references_id)
+values (@moby_dick_id, @the_iliad);
